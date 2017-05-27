@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ClassGeek</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+      
+      
+<nav class="navbar navbar-toggleable-sm navbar-inverse bg-inverse">
+  <div class="container">
+    <%= link_to "ClassGeek", root_path, class: "navbar-brand" %>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
+      <li class="nav-item"><%= link_to "Turmas", turmas_path, class: "nav-link" %></li>
+      <li class="nav-item"><%= link_to "Contato", "#", class: "nav-link" %></li>
+    </ul>
+    <ul class="navbar-nav">
+      <% if user_signed_in? %>
+        <li class="nav-item"><%= link_to "Sair", destroy_user_session_path, method: :delete, class: "btn btn-danger" %></li>
+      <% else %>
+        <li class="nav-item"><%= link_to "Entrar", new_user_session_path, class: "btn btn-success" %>|</li>
+        <li class="nav-item"><%= link_to "Cadastrar", new_user_registration_path, class: "btn btn-primary" %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+      
+      
+      
+      <% flash.each do |name, message| %>
+        <%= content_tag(:div, message, class: "alert alert-info #{name}") %>
+      <% end %>
+      
+      
+      
+      
+
+    <!-- Page Content -->
+    <div class="container">
+      <%= yield %>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<div class="jumbotron">
+    
+    <% if user_signed_in? %>
+    
+        <h1 class="display-3">Bem-vindo ao ClassGeek - Você está DENTRO do sistema!</h1>
+    
+    <% else %>
+    
+        <h1 class="display-3">Bem-vindo ao ClassGeek - Cadastre-se Abaixo!</h1>
+    
+    
+    
+          <p class="lead">Teste!!!.</p>
+          <hr class="my-4">
+          <p>Teste!!!!.</p>
+          <p class="lead">
+              <%= link_to "Cadastre-se", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+
+          </p>
+    
+    <% end %> 
+    
+    
+    
+</div>
